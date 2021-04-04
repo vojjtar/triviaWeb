@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/stylesheets/trivia.css">
+
+    <script src="/javascripts/trivia.js"></script>
+    <script src="/javascripts/jquery.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> <%= title %> </title>
+</head>
+<body>
+    <div id="wrapper">
+
+        <%- include components/navbar.ejs %>
+
+
+        <div id="questionDiv">
+            <span id="questionText">loading...</span>
+            <div id="moznostiDiv">
+                <dl id="Aansw" class="moznosti"">a) loading...</dl>
+                <dl id="Bansw" class="moznosti">b) loading...</dl>
+                <dl id="Cansw" class="moznosti">c) loading...</dl>
+                <dl id="Dansw" class="moznosti">d) loading...</dl>
+                <div id="divJmenoScoreDifficulty">
+                    <a id="userName"><%= name %></a> <br>
+                    <a id="scoreText"><%= score %></a> <br>
+                    <a id="difficultyText">random</a>
+                </div>
+            </div>
+        </div>
+        <div id="buttonDiv">
+            <button class="answBut" id="Abut" onclick="checkQuestion('a')">A</button>
+            <button class="answBut" id="Bbut" onclick="checkQuestion('b')">B</button>
+            <button class="answBut" id="Cbut" onclick="checkQuestion('c')">C</button>
+            <button class="answBut" id="Dbut" onclick="checkQuestion('d')">D</button>
+        </div>
+
+
+        <div id="nextButDiv">
+            <button id="nextBut" class="answBut" onclick="getQuestion()">NEXT</button>
+        </div>
+
+        <div id="comboboxDiv">
+            <label for="categories" class="catLabels"></label>
+            <select name="categories" id="categories" class="selectors">
+                <option value="all">All</option>
+                <option value="it">IT</option>
+                <option value="games">Games</option>
+                <option value="anime">Anime</option>
+                <option value="history">History</option>
+                <option value="sport">Sport</option>
+            </select>
+            <span id="comboBoxSpacer"></span>
+            <label for="difficulty" class="catLabels"></label>
+            <select name="difficulty" id="difficulty" class="selectors">
+                <option value="random">Random</option>
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+            </select>
+        </div>
+    </div>
+
+    <%- include components/footer.ejs %>
+    
+</body>
+</html>
